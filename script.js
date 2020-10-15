@@ -23,7 +23,7 @@ var newMsg = () => {
   div.id = "first-row";
   //create avatar
   var avatar = document.createElement("img");
-  avatar.src = "avatar-RG.jpeg";
+  avatar.src = "ressources/avatar-RG.jpeg";
   avatar.classList.add("avatar");
   div.appendChild(avatar);
   //create div child
@@ -42,7 +42,7 @@ var newMsg = () => {
   div_child.appendChild(p);
   //create trash
   var trash = document.createElement("img");
-  trash.src = "trash.png";
+  trash.src = "ressources/trash.png";
   trash.classList.add("trash");
   div.appendChild(trash);
   //delete input msg
