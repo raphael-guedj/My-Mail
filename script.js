@@ -1,70 +1,43 @@
 //Counter message
 
-var messages = document.getElementsByClassName("row").length;
-
-document.getElementById("counter").textContent = messages;
+var counter = () => {
+  $("#counter").text($(".row").length);
+};
+counter();
 
 //Trash function
-var trashDOM = document.getElementsByClassName("trash");
-
-for (var i = 0; i < trashDOM.length; i++) {
-  trashDOM[i].addEventListener("click", function () {
-    this.parentNode.remove();
-    messages = document.getElementsByClassName("row").length;
-    document.getElementById("counter").textContent = messages;
-  });
-}
-
-//nouvelle row function
-var newMsg = () => {
-  //create div row
-  var div = document.createElement("div");
-  div.classList.add("row");
-  div.id = "first-row";
-  //create avatar
-  var avatar = document.createElement("img");
-  avatar.src = "ressources/avatar-RG.jpeg";
-  avatar.classList.add("avatar");
-  div.appendChild(avatar);
-  //create div child
-  var div_child = document.createElement("div");
-  div.appendChild(div_child);
-  //create h6
-  var h6 = document.createElement("h6");
-  var auteur = document.createTextNode("Raphaël Guedj");
-  h6.appendChild(auteur);
-  div_child.appendChild(h6);
-  //create p
-  var p = document.createElement("p");
-  var valueMsg = document.getElementById("input_msg").value;
-  var msg = document.createTextNode(valueMsg);
-  p.appendChild(msg);
-  div_child.appendChild(p);
-  //create trash
-  var trash = document.createElement("img");
-  trash.src = "ressources/trash.png";
-  trash.classList.add("trash");
-  div.appendChild(trash);
-  //delete input msg
-  document.getElementById("input_msg").value = "";
-  //delete function
-  trash.addEventListener("click", function () {
-    this.parentNode.remove();
-    messages = document.getElementsByClassName("row").length;
-    document.getElementById("counter").textContent = messages;
-  });
-  var firstChild = document.getElementById("first-row");
-  var parentDiv = firstChild.parentNode;
-  parentDiv.insertBefore(div, firstChild);
-};
+$("body").on("click", ".trash", function () {
+  $(this).parent().remove();
+  counter();
+});
 
 //Add click
-var add = document.getElementById("btn");
-
-add.addEventListener("click", function () {
-  //new message function
-  newMsg();
+$("#btn").click(function () {
+  //create div row
+  var msg = $("#input_msg").val();
+  $("body").append(
+    '<div class="row"><img class="avatar" src="ressources/avatar-RG.jpeg" /><div><h6>Raphaël Guedj</h6><p>' +
+      msg +
+      '</p></div><img class="trash" src="ressources/trash.png" /></div>'
+  );
+  //delete input msg
+  $("#input_msg").val("");
   //message counter
-  var messages = document.getElementsByClassName("row").length;
-  document.getElementById("counter").textContent = messages;
+  counter();
+});
+
+//Search message
+
+$("#btn_search").click(function () {
+  $("h6").each(function () {
+    if (
+      $("#search_message").val() !== "" &&
+      $("#search_message").val() !== $(this).text()
+    ) {
+      $(this).parent().parent().fadeOut();
+    } else {
+      $(this).parent().parent().delay(500).fadeIn();
+    }
+  });
+  $("#search_message").val("");
 });

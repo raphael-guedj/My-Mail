@@ -46,7 +46,9 @@ h6 {
   border-top: 1px solid #dadada;
   border-right: 1px solid #dadada;
   border-left: 1px solid #dadada;
-  padding: 5px 25px;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
 }
 
 .row-input {
@@ -65,7 +67,9 @@ span {
 }
 
 #btn:focus,
-#input_msg {
+#input_msg,
+#btn_search,
+#search_message {
   outline: 0;
 }
 
@@ -74,19 +78,43 @@ span {
   background-color: #fff;
   color: rgba(19, 163, 196, 0.8);
   border: 1px solid rgba(19, 163, 196, 0.8);
-  border-radius: 3px;
+  border-radius: 7px;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 600;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
   cursor: pointer;
 }
+#btn_search {
+  padding: 6px 9px;
+  background-color: #fff;
+  color: rgba(19, 163, 196, 0.8);
+  border: 1px solid rgba(19, 163, 196, 0.8);
+  border-radius: 7px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  cursor: pointer;
+}
+
 #input_msg {
   width: 85%;
   padding: 6px;
+  border: 1px solid #dadada;
+  margin-right: 13px;
+}
+
+#search_message {
+  margin-left: 13px;
+  width: 65%;
+  padding: 7px;
   border: 1px solid #dadada;
   margin-right: 13px;
 }
